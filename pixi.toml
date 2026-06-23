@@ -36,7 +36,7 @@ cmd = "R CMD INSTALL ."
 
 [feature.dev.tasks.serve-jupyter]
 cmd = "jupyter"
-depends-on = ["install-jupytergis"]
+env = { R_PROFILE_USER = "$PIXI_PROJECT_ROOT/.Rprofile" }
 
 [feature.dev.tasks.test-example]
 cmd = """

@@ -50,3 +50,7 @@ rsconnect/
 
 # Pixi
 .pixi/
+
+# Jupyter assets
+.jupyter/
+.jupyter_ystore.db
