@@ -30,7 +30,10 @@ document's CRDT roots (`layers`, `sources`, `options`, `layerTree`,
 \subsection{Public methods}{
   \itemize{
     \item \href{#method-GISDocument-initialize}{\code{GISDocument$new()}}
+    \item \href{#method-GISDocument-.add_source_layer}{\code{GISDocument$.add_source_layer()}}
     \item \href{#method-GISDocument-add_raster_layer}{\code{GISDocument$add_raster_layer()}}
+    \item \href{#method-GISDocument-add_vectortile_layer}{\code{GISDocument$add_vectortile_layer()}}
+    \item \href{#method-GISDocument-add_geojson_layer}{\code{GISDocument$add_geojson_layer()}}
     \item \href{#method-GISDocument-clone}{\code{GISDocument$clone()}}
   }
 }
@@ -66,6 +69,31 @@ ephemeral in-memory document.}
 }
 
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GISDocument-.add_source_layer"></a>}}
+\if{latex}{\out{\hypertarget{method-GISDocument-.add_source_layer}{}}}
+\subsection{\code{GISDocument$.add_source_layer()}}{
+  Write a source, layer, and layerTree entry to the document.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{GISDocument$.add_source_layer(source_id, source, layer_id, layer)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{source_id}}{The ID to use for the source.}
+      \item{\code{source}}{The source object to store.}
+      \item{\code{layer_id}}{The ID to use for the layer.}
+      \item{\code{layer}}{The layer object to store.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    The layer id.
+  }
+}
+
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GISDocument-add_raster_layer"></a>}}
 \if{latex}{\out{\hypertarget{method-GISDocument-add_raster_layer}{}}}
 \subsection{\code{GISDocument$add_raster_layer()}}{
@@ -74,7 +102,7 @@ ephemeral in-memory document.}
     \if{html}{\out{<div class="r">}}
     \preformatted{GISDocument$add_raster_layer(
   url,
-  name = "Raster Layer",
+  name = NULL,
   attribution = "",
   opacity = 1,
   url_parameters = NULL
@@ -89,6 +117,72 @@ ephemeral in-memory document.}
       \item{\code{attribution}}{Attribution text.}
       \item{\code{opacity}}{Layer opacity in [0, 1].}
       \item{\code{url_parameters}}{Extra URL parameters for tile requests.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    The new layer id.
+  }
+}
+
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GISDocument-add_vectortile_layer"></a>}}
+\if{latex}{\out{\hypertarget{method-GISDocument-add_vectortile_layer}{}}}
+\subsection{\code{GISDocument$add_vectortile_layer()}}{
+  Add a Vectortile Layer to the document.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{GISDocument$add_vectortile_layer(
+  url,
+  name = NULL,
+  attribution = "",
+  min_zoom = 0,
+  max_zoom = 24,
+  opacity = 1,
+  url_parameters = NULL
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{url}}{Tiles URL.}
+      \item{\code{name}}{Display name for the layer.}
+      \item{\code{attribution}}{Attribution text.}
+      \item{\code{min_zoom}}{smallest size of the marker.}
+      \item{\code{max_zoom}}{largest size of the marker.}
+      \item{\code{opacity}}{Layer opacity in [0, 1].}
+      \item{\code{url_parameters}}{Extra URL parameters for tile requests.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    The new layer id.
+  }
+}
+
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GISDocument-add_geojson_layer"></a>}}
+\if{latex}{\out{\hypertarget{method-GISDocument-add_geojson_layer}{}}}
+\subsection{\code{GISDocument$add_geojson_layer()}}{
+  Add a GeoJSON Layer to the document.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{GISDocument$add_geojson_layer(
+  path = NULL,
+  data = NULL,
+  name = NULL,
+  opacity = 1
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{path}}{The path to the JSON file or URL to embed into the jGIS file.}
+      \item{\code{data}}{The raw GeoJSON data to embed into the jGIS file}
+      \item{\code{name}}{The name that will be used for the object in the document.}
+      \item{\code{opacity}}{Layer opacity in [0, 1].}
     }
     \if{html}{\out{</div>}}
   }

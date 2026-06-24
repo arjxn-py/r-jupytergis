@@ -54,3 +54,4 @@ rsconnect/
 # Jupyter assets
 .jupyter/
 .jupyter_ystore.db
+**/.ipynb_checkpoints
