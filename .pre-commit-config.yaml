@@ -1,3 +1,7 @@
+# We run pre-commit in our CI with our local tasks.
+# We should just remove pre-commit.ci
+ci: { skip: [pixi-doc, pixi-format-air, pixi-check-typos] }
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
