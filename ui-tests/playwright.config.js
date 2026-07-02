@@ -14,5 +14,6 @@ module.exports = {
   use: {
     ...baseConfig.use,
     baseURL: "http://127.0.0.1:53729",
+    viewport: { width: 1920, height: 1080 },
   },
 };
